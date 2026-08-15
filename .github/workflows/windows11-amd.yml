@@ -1,12 +1,10 @@
-name: Windows 11 AMD64 CI
+name: Windows 11 Arm64 CI
 
 on: [push, pull_request]
 
 jobs:
   build:
-    # For AMD64, GitHub currently provides Windows Server 2022
-    # Use 'windows-latest' which maps to AMD64
-    runs-on: windows-latest
+    runs-on: windows-11-arm
     steps:
       - uses: actions/checkout@v4
 
