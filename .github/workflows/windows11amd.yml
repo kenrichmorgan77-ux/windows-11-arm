@@ -1,0 +1,17 @@
+name: Windows 11 AMD64 CI
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    # For AMD64, GitHub currently provides Windows Server 2022
+    # Use 'windows-latest' which maps to AMD64
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build project
+        run: msbuild MySolution.sln /p:Configuration=Release
+
+      - name: Run tests
+        run: dotnet test --no-build --verbosity normal
